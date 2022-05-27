@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0/EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.uragil.spring052703.dao.IDao">
+	
+	
+	<delete id="deleteDao">
+	DELETE FROM board WHERE mnum=#{param1}
+	</delete>
+
+	<insert id="writeDao">
+	INSERT INTO board(mnum, mwriter, mcontent) VALUES(board_seq.nextval, #{param1},#{param2})
+	</insert>
+
+	<select id="listDao" resultType="com.uragil.spring052703.dto.ContentDto">
+		SELECT * FROM board ORDER BY mnum DESC
+	</select>
+
+</mapper>
